@@ -1,0 +1,14 @@
+.pokedex h1 {
+  margin-bottom: 8px;
+}
+
+.pokedex-intro {
+  color: var(--text-soft);
+  margin-bottom: 24px;
+}
+
+.pokedex-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}

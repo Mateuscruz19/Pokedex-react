@@ -1,0 +1,24 @@
+.sobre {
+  background-color: var(--surface);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
+.sobre h1 {
+  margin-bottom: 16px;
+}
+
+.sobre h2 {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.sobre ul {
+  padding-left: 20px;
+}
+
+.sobre li {
+  margin-bottom: 4px;
+}
