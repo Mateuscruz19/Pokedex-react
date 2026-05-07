@@ -1,10 +1,19 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Card from '../components/Card'
-import { pokemons } from '../data/pokemons'
+import { pokemonIds } from '../data/pokemons'
 import './Home.css'
 
 export default function Home() {
-  const destaques = pokemons.slice(0, 3)
+  const [destaques, setDestaques] = useState([])
+
+  useEffect(() => {
+    Promise.all(
+      pokemonIds.slice(0, 3).map((id) =>
+        fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((r) => r.json())
+      )
+    ).then(setDestaques)
+  }, [])
 
   return (
     <section className="home">

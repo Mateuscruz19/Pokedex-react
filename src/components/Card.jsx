@@ -1,34 +1,37 @@
 import './Card.css'
 
 const cores = {
-  Grass: '#7AC74C',
-  Fire: '#EE8130',
-  Water: '#6390F0',
-  Electric: '#D4A017',
-  Normal: '#A8A77A',
-  Poison: '#A33EA1',
-  Flying: '#A98FF3',
-  Ghost: '#735797',
-  Dragon: '#6F35FC',
-  Ice: '#56B5BC',
-  Fighting: '#C22E28',
-  Psychic: '#F95587',
+  grass: '#7AC74C',
+  fire: '#EE8130',
+  water: '#6390F0',
+  electric: '#D4A017',
+  normal: '#A8A77A',
+  poison: '#A33EA1',
+  flying: '#A98FF3',
+  ghost: '#735797',
+  dragon: '#6F35FC',
+  ice: '#56B5BC',
+  fighting: '#C22E28',
+  psychic: '#F95587',
 }
 
 export default function Card({ pokemon }) {
+  const numero = '#' + String(pokemon.id).padStart(3, '0')
+  const img = pokemon.sprites.other['official-artwork'].front_default
+
   return (
     <article className="card">
-      <span className="card-number">{pokemon.numero}</span>
-      <img src={pokemon.img} alt={pokemon.nome} className="card-img" />
-      <h3 className="card-name">{pokemon.nome}</h3>
+      <span className="card-number">{numero}</span>
+      <img src={img} alt={pokemon.name} className="card-img" />
+      <h3 className="card-name">{pokemon.name}</h3>
       <div className="card-types">
-        {pokemon.tipo.map((t) => (
+        {pokemon.types.map((t) => (
           <span
-            key={t}
+            key={t.type.name}
             className="card-type"
-            style={{ backgroundColor: cores[t] }}
+            style={{ backgroundColor: cores[t.type.name] }}
           >
-            {t}
+            {t.type.name}
           </span>
         ))}
       </div>
