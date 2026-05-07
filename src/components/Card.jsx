@@ -13,6 +13,12 @@ const cores = {
   ice: '#56B5BC',
   fighting: '#C22E28',
   psychic: '#F95587',
+  bug: '#A6B91A',
+  ground: '#E2BF65',
+  rock: '#B6A136',
+  steel: '#B7B7CE',
+  fairy: '#D685AD',
+  dark: '#705746',
 }
 
 export default function Card({ pokemon }) {
