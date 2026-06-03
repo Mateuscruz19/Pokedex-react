@@ -13,6 +13,7 @@ export default function Navbar() {
         <NavLink to="/pokedex">Pokédex</NavLink>
         <NavLink to="/sobre">Sobre</NavLink>
         <NavLink to="/contato">Contato</NavLink>
+        <NavLink to="/novo">Novo Pokémon</NavLink>
       </nav>
     </header>
   )

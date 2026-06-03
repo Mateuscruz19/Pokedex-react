@@ -1,0 +1,50 @@
+.novo-pokemon {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.novo-intro {
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.novo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.novo-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-weight: 600;
+}
+
+.novo-form input,
+.novo-form select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff;
+}
+
+.novo-preview {
+  max-width: 220px;
+  align-self: center;
+  border-radius: 8px;
+}
+
+.novo-form button {
+  padding: 0.6rem 1.5rem;
+  cursor: pointer;
+  background: #ee1515;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+}

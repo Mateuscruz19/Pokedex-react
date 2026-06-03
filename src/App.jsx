@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Sobre from './pages/Sobre'
 import Pokedex from './pages/Pokedex'
 import Contato from './pages/Contato'
+import NovoPokemon from './pages/NovoPokemon'
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="pokedex" element={<Pokedex />} />
         <Route path="sobre" element={<Sobre />} />
         <Route path="contato" element={<Contato />} />
+        <Route path="novo" element={<NovoPokemon />} />
       </Route>
     </Routes>
   )

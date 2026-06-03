@@ -52,3 +52,9 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
+.card-info {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}

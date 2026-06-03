@@ -1,27 +1,33 @@
+import { tipos } from '../data/tipos'
 import './Card.css'
 
-const cores = {
-  grass: '#7AC74C',
-  fire: '#EE8130',
-  water: '#6390F0',
-  electric: '#D4A017',
-  normal: '#A8A77A',
-  poison: '#A33EA1',
-  flying: '#A98FF3',
-  ghost: '#735797',
-  dragon: '#6F35FC',
-  ice: '#56B5BC',
-  fighting: '#C22E28',
-  psychic: '#F95587',
-  bug: '#A6B91A',
-  ground: '#E2BF65',
-  rock: '#B6A136',
-  steel: '#B7B7CE',
-  fairy: '#D685AD',
-  dark: '#705746',
+// cor de um tipo (serve pra API e pros cadastrados, pois usam os mesmos nomes)
+function corDoTipo(nome) {
+  const t = tipos.find((x) => x.nome === nome)
+  return t ? t.cor : '#777'
 }
 
 export default function Card({ pokemon }) {
+  // se for um pokémon criado por nós, ele tem um formato mais simples
+  if (pokemon.custom) {
+    return (
+      <article className="card">
+        <span className="card-number">NEW</span>
+        <img src={pokemon.imagem} alt={pokemon.name} className="card-img" />
+        <h3 className="card-name">{pokemon.name}</h3>
+        <div className="card-types">
+          <span
+            className="card-type"
+            style={{ backgroundColor: corDoTipo(pokemon.tipo) }}
+          >
+            {pokemon.tipo}
+          </span>
+        </div>
+      </article>
+    )
+  }
+
+  // pokémon que veio da API (formato original)
   const numero = '#' + String(pokemon.id).padStart(3, '0')
   const img = pokemon.sprites.other['official-artwork'].front_default
 
@@ -35,7 +41,7 @@ export default function Card({ pokemon }) {
           <span
             key={t.type.name}
             className="card-type"
-            style={{ backgroundColor: cores[t.type.name] }}
+            style={{ backgroundColor: corDoTipo(t.type.name) }}
           >
             {t.type.name}
           </span>

@@ -1,0 +1,21 @@
+// Tipos válidos de pokémon
+export const tipos = [
+  { nome: 'normal', cor: '#A8A77A' },
+  { nome: 'fire', cor: '#EE8130' },
+  { nome: 'water', cor: '#6390F0' },
+  { nome: 'grass', cor: '#7AC74C' },
+  { nome: 'electric', cor: '#D4A017' },
+  { nome: 'ice', cor: '#56B5BC' },
+  { nome: 'fighting', cor: '#C22E28' },
+  { nome: 'poison', cor: '#A33EA1' },
+  { nome: 'ground', cor: '#E2BF65' },
+  { nome: 'flying', cor: '#A98FF3' },
+  { nome: 'psychic', cor: '#F95587' },
+  { nome: 'bug', cor: '#A6B91A' },
+  { nome: 'rock', cor: '#B6A136' },
+  { nome: 'ghost', cor: '#735797' },
+  { nome: 'dragon', cor: '#6F35FC' },
+  { nome: 'dark', cor: '#705746' },
+  { nome: 'steel', cor: '#B7B7CE' },
+  { nome: 'fairy', cor: '#D685AD' },
+]
