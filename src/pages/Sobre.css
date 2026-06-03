@@ -22,3 +22,13 @@
 .sobre li {
   margin-bottom: 4px;
 }
+
+@media (max-width: 480px) {
+  .sobre {
+    padding: 22px 18px;
+  }
+
+  .sobre h1 {
+    font-size: 1.6rem;
+  }
+}

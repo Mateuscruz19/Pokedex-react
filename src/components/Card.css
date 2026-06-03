@@ -58,3 +58,29 @@
   font-size: 0.8rem;
   color: var(--text-soft);
 }
+
+@media (max-width: 480px) {
+  .card {
+    padding: 14px 10px;
+  }
+
+  .card-img {
+    width: 96px;
+    height: 96px;
+  }
+
+  .card-name {
+    font-size: 1rem;
+  }
+
+  .card-number {
+    top: 8px;
+    right: 10px;
+    font-size: 0.78rem;
+  }
+
+  .card-type {
+    padding: 3px 8px;
+    font-size: 0.66rem;
+  }
+}

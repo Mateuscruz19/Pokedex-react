@@ -65,3 +65,13 @@
 .contato-form button:hover {
   background-color: var(--primary-dark);
 }
+
+@media (max-width: 480px) {
+  .contato {
+    padding: 22px 18px;
+  }
+
+  .contato h1 {
+    font-size: 1.6rem;
+  }
+}
