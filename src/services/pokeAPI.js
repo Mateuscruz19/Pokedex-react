@@ -13,5 +13,7 @@ function fetchAPIPokemon() {
 // PÚBLICO: junta os custom (localStorage) com os da API
 export function getAllPokemons() {
   const meus = getCustomPokemons()
-  return fetchAPIPokemon().then((daApi) => [...meus, ...daApi])
+  return fetchAPIPokemon()
+    .then((daApi) => [...meus, ...daApi])
+    .catch(() => meus)
 }

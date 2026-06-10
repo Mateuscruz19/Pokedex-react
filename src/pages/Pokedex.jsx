@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react'
 import Card from '../components/Card'
+import { getCustomPokemons } from '../services/customPokemons'
 import { getAllPokemons } from '../services/pokeAPI'
 import './Pokedex.css'
 
 export default function Pokedex() {
-  const [pokemons, setPokemons] = useState([])
+  const [pokemons, setPokemons] = useState(() => getCustomPokemons())
+  const [carregando, setCarregando] = useState(true)
 
   useEffect(() => {
-    // o service busca da API e já junta com os custom do localStorage
-    getAllPokemons().then((lista) => setPokemons(lista))
+    getAllPokemons().then((lista) => {
+      setPokemons(lista)
+      setCarregando(false)
+    })
   }, [])
 
   return (
@@ -17,6 +21,8 @@ export default function Pokedex() {
       <p className="pokedex-intro">
         Lista de pokémons cadastrados na primeira geração.
       </p>
+
+      {carregando && <p className="pokedex-carregando">Carregando pokémons...</p>}
 
       <div className="pokedex-grid">
         {pokemons.map((p) => (

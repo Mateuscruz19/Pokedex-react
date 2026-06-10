@@ -66,6 +66,18 @@
   background-color: var(--primary-dark);
 }
 
+.contato-sucesso {
+  margin-top: 16px;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.contato-erro {
+  color: #ee1515;
+  font-weight: 600;
+  margin: -8px 0 0;
+}
+
 @media (max-width: 480px) {
   .contato {
     padding: 22px 18px;

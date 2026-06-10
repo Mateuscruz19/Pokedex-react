@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { addCustomPokemon } from '../services/customPokemons'
+import { validarNome, validarTipo } from '../services/validacao'
 import { tipos } from '../data/tipos'
 import './NovoPokemon.css'
 
 export default function NovoPokemon() {
   const [nome, setNome] = useState('')
   const [tipo, setTipo] = useState('')
+  const [erros, setErros] = useState({})
 
   // preview
   const [preview, setPreview] = useState(null)
@@ -31,8 +33,13 @@ export default function NovoPokemon() {
   function handleSubmit(e) {
     e.preventDefault() // impede a página de recarregar
 
-    if (!imagemBase64) {
-      alert('Escolha uma imagem para o pokémon!')
+    const novosErros = {}
+    novosErros.nome = validarNome(nome)
+    novosErros.tipo = validarTipo(tipo)
+    novosErros.imagem = imagemBase64 ? '' : 'Escolha uma imagem para o pokémon.'
+
+    setErros(novosErros)
+    if (novosErros.nome || novosErros.tipo || novosErros.imagem) {
       return
     }
 
@@ -64,17 +71,13 @@ export default function NovoPokemon() {
             value={nome}
             onChange={(e) => setNome(e.target.value)}
             placeholder="Baianivs"
-            required
           />
         </label>
+        {erros.nome && <p className="novo-erro">{erros.nome}</p>}
 
         <label>
           Tipo
-          <select
-            value={tipo}
-            onChange={(e) => setTipo(e.target.value)}
-            required
-          >
+          <select value={tipo} onChange={(e) => setTipo(e.target.value)}>
             <option value="">Selecione...</option>
             {tipos.map((t) => (
               <option key={t.nome} value={t.nome}>
@@ -83,11 +86,13 @@ export default function NovoPokemon() {
             ))}
           </select>
         </label>
+        {erros.tipo && <p className="novo-erro">{erros.tipo}</p>}
 
         <label>
           Foto
           <input type="file" accept="image/*" onChange={handleImagem} />
         </label>
+        {erros.imagem && <p className="novo-erro">{erros.imagem}</p>}
 
         {/* o preview só aparece depois de escolher a imagem */}
         {preview && (
